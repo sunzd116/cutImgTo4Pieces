@@ -1,0 +1,53 @@
+<html>
+  <head>
+      <meta content="width=device-width,initial-scale=1.0" name="viewport">
+    <style type="text/css">
+      body{
+        margin: 0 0;
+      }
+      .snapshot-img-container {
+        width: 100vw;
+        height: 100vh;
+        /* overflow: hidden; */
+      }
+      .snapshot-img-container > div {
+      }
+
+      .snapshot-img-container > .img-left-top-container {
+      }
+
+      .snapshot-img-container > .img-right-top-container {
+      }
+
+      .snapshot-img-container > .img-left-bottom-container {
+      }
+
+      .snapshot-img-container > .img-right-bottom-container {
+      }
+      .snapshot-img-container > .img-top-container {
+        display: flex;
+      }
+      .snapshot-img-container > .img-top-container :first-child{
+        z-index: 3;
+      }
+      .snapshot-img-container > .img-top-container :last-child{
+        z-index: 2;
+      }
+      .snapshot-img-container > .img-bottom-container {
+        display: flex;
+      }
+      .snapshot-img-container > .img-bottom-container :first-child{
+        z-index: 2;
+      }
+      .snapshot-img-container > .img-bottom-container :last-child{
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="application/javascript" src='./transform.js'></script>
+    <script type="application/javascript" src='./alloyTouch.js'></script>
+    <script type="application/javascript" src='./cutImgTo4Pieces.js'></script>
+    <script type="application/javascript" src='./index.js'></script>
+  </body>
+</html>

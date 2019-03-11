@@ -1,0 +1,25 @@
+{
+  "name": "cut-img-to-4-pieces",
+  "version": "1.0.0",
+  "description": "cut img to 4 pieces",
+  "main": "dist/cutImgTo4Pieces.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunzd116/cutImgTo4Pieces.git"
+  },
+  "keywords": [
+    "img"
+  ],
+  "author": "sunzd116",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunzd116/cutImgTo4Pieces/issues"
+  },
+  "homepage": "https://github.com/sunzd116/cutImgTo4Pieces#readme",
+  "dependencies": {
+    "css3transform": "^1.2.1"
+  }
+}
