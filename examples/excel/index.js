@@ -3,7 +3,7 @@ var data =
 
 var imgWidth = window.innerWidth * 2;
 var imgHeight = window.innerHeight * 2;
-cutImgTo4Piece(data, 31, 26, imgWidth, imgHeight, "snapshot-img-container");
+cutTo4Piece(data, 31, 26, imgWidth, imgHeight, "snapshot-img-container");
 
 // drawImage(data, imgWidth, imgHeight);
 

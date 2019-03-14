@@ -4,7 +4,8 @@
   "description": "cut img to 4 pieces",
   "main": "dist/cutImgTo4Pieces.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
   "homepage": "https://github.com/sunzd116/cutImgTo4Pieces#readme",
   "dependencies": {
     "css3transform": "^1.2.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   }
 }

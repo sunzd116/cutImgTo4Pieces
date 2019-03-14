@@ -1,5 +1,6 @@
-import Transform from 'css3transform';
-import AlloyTouch from '../lib/alloyTouch';
+import Transform from "css3transform";
+import AlloyTouch from "../lib/alloyTouch";
+// import './index.css';
 /**
  *
  * @param {base64} data
@@ -7,7 +8,7 @@ import AlloyTouch from '../lib/alloyTouch';
  * @param {number} pointY
  * @param {string} className
  */
-function cutImgTo4Piece(data, pointX, pointY, imgWidth, imgHeight, className) {
+function cut4Pieces(data, pointX, pointY, imgWidth, imgHeight, className) {
   // 初始化容器 dom 节点
   var container = document.createElement("div");
   container.setAttribute("class", className);
@@ -70,13 +71,12 @@ function cutImgTo4Piece(data, pointX, pointY, imgWidth, imgHeight, className) {
       }
     },
     canCrossBorderMax: false,
-    touchEnd: function(evt, current, obj){
-      if(current >= 0){
+    touchEnd: function(evt, current, obj) {
+      if (current >= 0) {
         return false;
       }
       return true;
     }
-      
   });
 
   imgMap.rightBottom.alloyTouchX = new AlloyTouch({
@@ -93,8 +93,8 @@ function cutImgTo4Piece(data, pointX, pointY, imgWidth, imgHeight, className) {
       }
     },
     canCrossBorderMax: false,
-    touchEnd: function(evt, current){
-      if(current >= 0){
+    touchEnd: function(evt, current) {
+      if (current >= 0) {
         return false;
       }
       return true;
@@ -108,7 +108,7 @@ function cutImgTo4Piece(data, pointX, pointY, imgWidth, imgHeight, className) {
     property: "translateY",
     initialValue: 0,
     max: 0,
-    fixed: true,
+    fixed: true
   });
 
   imgMap.rightTop.alloyTouch = new AlloyTouch({
@@ -118,7 +118,7 @@ function cutImgTo4Piece(data, pointX, pointY, imgWidth, imgHeight, className) {
     property: "translateX",
     initialValue: 0,
     max: 0,
-    fixed: true,
+    fixed: true
   });
 
   // 在图片初始化完毕之后，将图片挂载至容器
@@ -149,19 +149,8 @@ function cutImgTo4Piece(data, pointX, pointY, imgWidth, imgHeight, className) {
 
   // 在原图片 load 之后，执行具体的切割操作
   sourceImg.onload = function() {
-    sourceCtx.drawImage(
-      sourceImg,
-      0,
-      0,
-      dpr * imgWidth,
-      dpr * imgHeight
-    );
-    var imgData = sourceCtx.getImageData(
-      0,
-      0,
-      dpr * imgWidth,
-      dpr * imgHeight
-    );
+    sourceCtx.drawImage(sourceImg, 0, 0, dpr * imgWidth, dpr * imgHeight);
+    var imgData = sourceCtx.getImageData(0, 0, dpr * imgWidth, dpr * imgHeight);
 
     imgMap.leftTop.src = getRectImageData(imgData, 0, 0, pointX, pointY);
 
@@ -237,4 +226,10 @@ function appendContainer(dom, mountPoint) {
   }
 }
 
-export default cutImgTo4Piece;
+if (typeof module !== "undefined" && typeof exports === "object") {
+  module.exports = cut4Pieces;
+} else {
+  window.cut4Pieces = cut4Pieces;
+}
+
+export default cut4Pieces;
