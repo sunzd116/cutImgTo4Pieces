@@ -8,7 +8,9 @@ import AlloyTouch from "../lib/alloyTouch";
  * @param {number} pointY
  * @param {string} className
  */
-function cut4Pieces(data, pointX, pointY, imgWidth, imgHeight, className) {
+function cut4Pieces(data, pointX, pointY, imgWidth, imgHeight, className, callback) {
+  var callbackDone = false;
+
   // 初始化容器 dom 节点
   var container = document.createElement("div");
   container.setAttribute("class", className);
@@ -124,26 +126,35 @@ function cut4Pieces(data, pointX, pointY, imgWidth, imgHeight, className) {
   // 在图片初始化完毕之后，将图片挂载至容器
   imgMap.leftTop.onload = function() {
     leftTopContainer.append(imgMap.leftTop);
-    if (checkAllFinsh(imgMap.leftTop, imgMap)) {
-      appendContainer(container, document.body);
+    if (checkAllFinsh(imgMap.leftTop, imgMap) && !callbackDone) {
+      // appendContainer(container, document.body);
+      callbackDone = true;
+      callback(container);
+      
     }
   };
   imgMap.rightTop.onload = function() {
     rightTopContainer.append(imgMap.rightTop);
-    if (checkAllFinsh(imgMap.rightTop, imgMap)) {
-      appendContainer(container, document.body);
+    if (checkAllFinsh(imgMap.rightTop, imgMap) && !callbackDone) {
+      // appendContainer(container, document.body);
+      callbackDone = true;
+      callback(container);
     }
   };
   imgMap.leftBottom.onload = function() {
     leftBottomContainer.append(imgMap.leftBottom);
-    if (checkAllFinsh(imgMap.leftBottom, imgMap)) {
-      appendContainer(container, document.body);
+    if (checkAllFinsh(imgMap.leftBottom, imgMap) && !callbackDone) {
+      // appendContainer(container, document.body);
+      callbackDone = true;
+      callback(container);
     }
   };
   imgMap.rightBottom.onload = function() {
     rightBottomContainer.append(imgMap.rightBottom);
-    if (checkAllFinsh(imgMap.rightBottom, imgMap)) {
-      appendContainer(container, document.body);
+    if (checkAllFinsh(imgMap.rightBottom, imgMap) && !callbackDone) {
+      // appendContainer(container, document.body);
+      callbackDone = true;
+      callback(container);
     }
   };
 
@@ -225,11 +236,4 @@ function appendContainer(dom, mountPoint) {
     dom.appended = true;
   }
 }
-
-if (typeof module !== "undefined" && typeof exports === "object") {
-  module.exports = cut4Pieces;
-} else {
-  window.cut4Pieces = cut4Pieces;
-}
-
 export default cut4Pieces;

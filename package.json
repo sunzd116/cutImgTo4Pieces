@@ -2,7 +2,7 @@
   "name": "cut-img-to-4-pieces",
   "version": "1.0.0",
   "description": "cut img to 4 pieces",
-  "main": "dist/cutImgTo4Pieces.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
