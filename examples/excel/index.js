@@ -3,7 +3,7 @@ var data =
 
 var imgWidth = window.innerWidth * 2;
 var imgHeight = window.innerHeight * 2;
-window.cut4Pieces.default(data, 31, 26, imgWidth, imgHeight, "snapshot-img-container",function($dom){
+window.cut4Pieces(data, 31, 26, imgWidth, imgHeight, "snapshot-img-container",function($dom){
         document.body.append($dom);
 });
 

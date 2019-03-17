@@ -236,4 +236,6 @@ function appendContainer(dom, mountPoint) {
     dom.appended = true;
   }
 }
-export default cut4Pieces;
+export {
+  cut4Pieces
+};
